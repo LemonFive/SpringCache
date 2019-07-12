@@ -16,7 +16,12 @@ public class IndexController {
 
     @GetMapping("/users")
     public List<User> users() {
-        return userService.list();
+
+        List<User> userList1 = userService.list();
+
+        List<User> userList2 = userService.test();
+
+        return userList1;
     }
 
     @GetMapping("/user/{id}")

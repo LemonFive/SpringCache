@@ -79,7 +79,8 @@ public class RedisConfig extends CachingConfigurerSupport {
 
     private Map<String, RedisCacheConfiguration> getRedisCacheConfigurationMap() {
         Map<String, RedisCacheConfiguration> redisCacheConfigurationMap = new HashMap<String, RedisCacheConfiguration>();
-        redisCacheConfigurationMap.put("user", this.getRedisCacheConfigurationWithTtl(30)); // 单独设置某些cache的超时时间
+        // 单独设置某些cache的超时时间
+        redisCacheConfigurationMap.put("user2", this.getRedisCacheConfigurationWithTtl(30));
         return redisCacheConfigurationMap;
     }
 

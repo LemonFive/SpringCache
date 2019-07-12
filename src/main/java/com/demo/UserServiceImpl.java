@@ -47,8 +47,19 @@ public class UserServiceImpl implements UserService {
         System.out.println("querying list.....");
         User[] users = new User[userMap.size()];
         this.userMap.values().toArray(users);
-        return Arrays.asList(users);
+        List<User> userList = Arrays.asList(users);
+        return userList;
     }
+
+    @Cacheable(value = "emp" ,key = "targetClass + methodName +#p0")
+    public List<User> test(){
+        System.out.println("querying list.....");
+        User[] users = new User[userMap.size()];
+        this.userMap.values().toArray(users);
+        List<User> userList = Arrays.asList(users);
+        return userList;
+    }
+
 
     @Cacheable(key = "'user:'.concat(#id.toString())")
     @Override
